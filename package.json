@@ -1,0 +1,53 @@
+{
+  "name": "browser-video-compress",
+  "version": "1.0.0",
+  "description": "Browser-side MP4 compression: WebCodecs hardware acceleration with FFmpeg.wasm fallback",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "src",
+    "assets",
+    "scripts"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./vue": "./src/vue/useVideoCompress.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "postinstall": "node scripts/copy-ffmpeg-core.mjs",
+    "copy-ffmpeg": "node scripts/copy-ffmpeg-core.mjs"
+  },
+  "bin": {
+    "browser-video-compress-copy-ffmpeg": "./scripts/copy-ffmpeg-core.mjs"
+  },
+  "dependencies": {
+    "@ffmpeg/core": "^0.12.6",
+    "@ffmpeg/core-mt": "^0.12.6",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "mp4-muxer": "^5.2.2",
+    "mp4box": "^2.3.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "video",
+    "compress",
+    "webcodecs",
+    "ffmpeg",
+    "wasm",
+    "browser",
+    "mp4"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

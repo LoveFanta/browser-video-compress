@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+*.tgz
+
+# FFmpeg wasm 由 postinstall 生成，不提交到 Git
+assets/ffmpeg/**
+!assets/ffmpeg/.gitkeep
